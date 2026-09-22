@@ -2,8 +2,9 @@
 // app.js
 // Demonstrates reusing custom modules (isEven + logger) via require()
 
-const isEven = require('./modules/isEven');
-const log = require('./modules/logger'); // Fixed: Import function directly without destructuring
+const isEven = require('./module/isEven');
+const log = require('./module/logger');
+
 
 log('Starting module reusability demo...');
 
