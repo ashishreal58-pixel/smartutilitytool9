@@ -1,8 +1,8 @@
 // fileManager.js
 // File manager demonstrating CRUD operations using the fs module
 
-const fs = require('fs');
-const path = require('path');
+const logMessage = require('./module/logger');
+
 
 const filePath = path.join(__dirname, 'test.txt');
 
