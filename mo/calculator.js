@@ -2,8 +2,9 @@
 // CLI-based calculator using process.argv
 // Usage: node calculator.js <add|subtract|multiply|divide> <num1> <num2>
 
-const args = process.argv.slice(2);
-const [operation, rawA, rawB] = args;
+
+const logMessage = require('./module/logger');
+const isEven = require('./module/isEven');
 
 const num1 = parseFloat(rawA);
 const num2 = parseFloat(rawB);
