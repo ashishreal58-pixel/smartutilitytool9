@@ -1,12 +1,13 @@
+
 // app.js
 // Demonstrates reusing custom modules (isEven + logger) via require()
 
 const isEven = require('./modules/isEven');
-const { log } = require('./modules/logger');
+const log = require('./modules/logger'); // Fixed: Import function directly without destructuring
 
 log('Starting module reusability demo...');
 
-const numbers = [4, 7, 10, 15, 22, 33];
+const numbers =;
 
 numbers.forEach((num) => {
   const result = isEven(num) ? 'even' : 'odd';
