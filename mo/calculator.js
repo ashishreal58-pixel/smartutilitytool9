@@ -1,13 +1,9 @@
-// calculator.js
-// CLI-based calculator using process.argv
-// Usage: node calculator.js <add|subtract|multiply|divide> <num1> <num2>
-
-
 const logMessage = require('./module/logger');
-const isEven = require('./module/isEven');
 
-const num1 = parseFloat(rawA);
-const num2 = parseFloat(rawB);
+const args = process.argv;
+const op = args[2];
+const num1 = parseFloat(args[3]);
+const num2 = parseFloat(args[4]);
 
 function calculate(op, x, y) {
   switch (op) {
@@ -19,24 +15,22 @@ function calculate(op, x, y) {
       return x * y;
     case 'divide':
       if (y === 0) {
-        throw new Error('Division by zero is not allowed');
+        throw new Error('Cannot divide by zero');
       }
       return x / y;
     default:
-      throw new Error(`Invalid operation: "${op}". Use add, subtract, multiply, or divide.`);
+      throw new Error('Invalid operation: ' + op);
   }
 }
 
-if (!operation || Number.isNaN(num1) || Number.isNaN(num2)) {
-  console.log('Usage: node calculator.js <add|subtract|multiply|divide> <num1> <num2>');
-  console.log('Example: node calculator.js add 10 5');
+if (!op || isNaN(num1) || isNaN(num2)) {
+  console.log('Usage: node mo/calculator.js add 10 5');
   process.exit(1);
 }
 
 try {
-  const result = calculate(operation, num1, num2);
-  console.log(`Result: ${result}`);
+  logMessage('Operation: ' + op + ', inputs: ' + num1 + ', ' + num2);
+  console.log('Result: ' + calculate(op, num1, num2));
 } catch (err) {
-  console.error(`Error: ${err.message}`);
-  process.exit(1);
+  console.log('Error: ' + err.message);
 }
